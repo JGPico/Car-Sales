@@ -1,4 +1,6 @@
 
+import { TEMP_CASE } from '../actions/coreActions';
+
 export const initialState = 
     {
         additionalPrice: 0,
@@ -19,7 +21,7 @@ export const initialState =
 
 export const coreReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'TEMP_CASE':
+        case TEMP_CASE:
             return {
                 ...state,
 
