@@ -9,7 +9,7 @@ import 'bulma/css/bulma.css';
 import './styles.scss';
 
 const store = createStore(coreReducer);
-console.log("Store from coreReducer ", store);
+// console.log("Store from coreReducer ", store);
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(

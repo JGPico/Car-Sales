@@ -1,5 +1,5 @@
 
-import { TEMP_CASE } from '../actions/coreActions';
+import { TEMP_CASE, ADD_FEATURE } from '../actions/coreActions';
 
 export const initialState = 
     {
@@ -20,12 +20,24 @@ export const initialState =
       };
 
 export const coreReducer = (state = initialState, action) => {
+  console.log("This is the action",action);
     switch (action.type) {
         case TEMP_CASE:
             return {
                 ...state,
 
             }
+        case ADD_FEATURE:
+          //const addFeatureBit = state.additonalFeatures.find(el => el.id === action.payload);
+          //console.log("ADD_FEATURE fn", addFeatureBit);
+          return {
+            ...state,
+            car: {
+              ...state.car,
+              features: [ 
+                ...state.car.features].concat(state.additionalFeatures.find(el => el.id === action.payload))
+            }
+          }    
         default:
             return state;
     }
