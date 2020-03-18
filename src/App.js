@@ -30,13 +30,13 @@ const App = props => {
   const removeFeature = item => {
     // dispatch an action here to remove an item
     // console.log("Removing this feature ", item);
-    props.removeFeature(item.id);
+    props.removeFeature(item);
   };
 
   const addItem = item => {
     // dipsatch an action here to add an item
     // console.log("this is the feature", item);
-    props.addFeature(item.id);
+    props.addFeature(item);
   };
 
   return (

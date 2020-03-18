@@ -34,9 +34,9 @@ export const coreReducer = (state = initialState, action) => {
             ...state,
             car: {
               ...state.car,
-              features: [ 
-                ...state.car.features].concat(state.additionalFeatures.find(el => el.id === action.payload))
-            }
+              features: [...state.car.features, action.payload]
+            },
+            additionalPrice: state.additionalPrice + action.payload.price
           }
           case REMOVE_FEATURE:
             console.log("Remove Feature Case ",state.car.features);
@@ -46,10 +46,10 @@ export const coreReducer = (state = initialState, action) => {
               ...state,
               car: {
                 ...state.car,
-                features: [
-                  state.car.features.filter(item => item.id !== action.payload)
-                ]
-              }
+                features: 
+                  state.car.features.filter(item => item.id !== action.payload.id)
+              },
+              additionalPrice: state.additionalPrice - action.payload.price
             }    
         default:
             return state;
