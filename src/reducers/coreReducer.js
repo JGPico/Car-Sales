@@ -1,5 +1,5 @@
 
-import { TEMP_CASE, ADD_FEATURE } from '../actions/coreActions';
+import { TEMP_CASE, ADD_FEATURE, REMOVE_FEATURE } from '../actions/coreActions';
 
 export const initialState = 
     {
@@ -20,7 +20,7 @@ export const initialState =
       };
 
 export const coreReducer = (state = initialState, action) => {
-  console.log("This is the action",action);
+    console.log("This is the action",action);
     switch (action.type) {
         case TEMP_CASE:
             return {
@@ -37,7 +37,20 @@ export const coreReducer = (state = initialState, action) => {
               features: [ 
                 ...state.car.features].concat(state.additionalFeatures.find(el => el.id === action.payload))
             }
-          }    
+          }
+          case REMOVE_FEATURE:
+            console.log("Remove Feature Case ",state.car.features);
+            console.log("Remove Feature payload ", action.payload);
+            console.log("Features array length ", state.car.features.length)
+            return {
+              ...state,
+              car: {
+                ...state.car,
+                features: [
+                  state.car.features.filter(item => item.id !== action.payload)
+                ]
+              }
+            }    
         default:
             return state;
     }

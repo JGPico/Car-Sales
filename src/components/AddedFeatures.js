@@ -4,7 +4,7 @@ import AddedFeature from './AddedFeature';
 
 const AddedFeatures = props => {
 
-  console.log("Features plural", props);
+  // console.log("Features plural", props);
   return (
     <div className="content">
       <h6>Added features:</h6>
@@ -14,7 +14,7 @@ const AddedFeatures = props => {
             <AddedFeature 
             key={item.id} 
             feature={item}
-            additionalFeatures={item.additionalFeatures} />
+            removeFeature={props.removeFeature}/>
           ))}
         </ol>
       ) : (
